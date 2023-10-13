@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    build: .
+    depends_on:
+      - rabbitmq
+    ports:
+      - "8080:80"
+    working_dir: /app
+
+  rabbitmq:
+    image: "rabbitmq:management"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
